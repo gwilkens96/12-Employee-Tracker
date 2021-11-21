@@ -39,7 +39,7 @@ function loadQuestionnaire() {
           },
           {
             name: "Add Role",
-            value: "ADD_ROLE",
+            value: "ADD_ROLES",
           },
           {
             name: "View All Departments",
@@ -114,8 +114,8 @@ function updateEmployeeRole() {
     ]).then((res) => {
       let employeeId = res.employeeId;
       db.findAllRoles().then(([rows]) => {
-        let roles = rows;
-        const roleChoices = roles.map(({ id, title }) => ({
+        let role = rows;
+        const roleChoices = role.map(({ id, title }) => ({
           name: title,
           value: id,
         }));
@@ -217,7 +217,7 @@ function addEmployee() {
 
     db.findAllRoles().then(([rows]) => {
       let roles = rows;
-      const roleChoices = roles.map(({ id, title }) => ({
+      const roleChoices = role.map(({ id, title }) => ({
         name: title,
         value: id,
       }));
